@@ -1,0 +1,54 @@
+package project.selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo {
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		System.setProperty("webdriver.chrome.driver","P:\\files\\SEMESTERS\\sem-5\\C2-SWT\\Project\\Tools\\chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://accounts.zoho.in/signin?servicename=ZohoHome&signupurl=https://www.zoho.com/signup.html");
+		
+
+		driver.findElement(By.id("lid")).sendKeys("akashkam992@gmail.com");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("pwd")).sendKeys("ct28wv14617436");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("signin_submit")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.className("app-nm")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("ember16")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.className("btn-primary")).click();
+		Thread.sleep(2000);
+		
+		
+		
+		
+		String at = driver.getTitle();
+		String et = "zoho inventory";
+
+		driver.close();
+ 
+		if(at.equalsIgnoreCase(et))
+		{
+			System.out.print("Test Successful");
+		}
+		else
+		{
+			System.out.print("Test Failure");
+		}
+	}
+
+}
